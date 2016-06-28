@@ -1,0 +1,119 @@
+.sidebar a {
+        color: @sidebar-link-color;
+        border: none;
+        white-space: normal;
+        //padding: 0.6em 0 0.6em 0.6em;
+    }
+    .sidebar .menu__side ul {
+        border: none;
+        background: transparent;
+    }
+
+    .sidebar .menu__side ul,
+    .sidebar .menu__side .menu__side--divided {
+        border-top: 1px solid darken( @sidebar-link-color, 25%);
+    }
+
+        .sidebar .menu__side li a:hover,
+        .sidebar .menu__side li a:focus {
+            background: darken(@body-bg, 4%);
+            background: darken( @sidebar-link-color, 20%);
+        }
+
+
+//MENU STYLING
+.menu__side ul {
+    position: absolute;
+    visibility: hidden;
+}
+
+.menu__side.menu__side--open {
+    visibility: visible;
+    z-index: 2;
+    width: 100%;
+}
+
+.menu__side ul {
+    left: -10000px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    top: -10000px;
+    z-index: 1;
+}
+
+.menu__side > ul { position: relative; }
+
+.menu__side--open > ul {
+    left: 0;
+    top: 0;
+    visibility: visible;
+}
+
+.menu__side--open > ul:focus {
+    outline: 0;
+}
+
+.menu__side li { position: relative; }
+
+.menu__side a,
+.menu__side .menu__side-heading {
+    display: block;
+    color: inherit;
+    line-height: 1.5em;
+    padding: 5px 20px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.menu__side.menu__side-horizontal > .menu__side-heading {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    margin: 0;
+    vertical-align: middle;
+}
+.menu__side.menu__side-horizontal > ul {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle;
+    height: 2.4em;
+}
+
+.menu__side li a { padding: 5px 20px; }
+
+.menu__side-can-have-children > .menu__side-label:after {
+    content: '\25B8';
+    float: right;
+    /* These specific fonts have the Unicode char we need. */
+    //font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'DejaVu Sans', sans-serif;
+    margin-right: -20px;
+    margin-top: -1px;
+}
+
+.menu__side-can-have-children > .menu__side-label {
+    padding-right: 30px;
+}
+
+.menu__side-separator {
+    background-color: #dfdfdf;
+    display: block;
+    height: 1px;
+    font-size: 0;
+    margin: 7px 2px;
+    overflow: hidden;
+}
+
+.menu__side-hidden {
+    display: none;
+}
+
+/* FIXED MENU */
+.menu__side-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+

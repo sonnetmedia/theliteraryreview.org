@@ -1,0 +1,192 @@
+/* Add transition to containers so they can push in and out */
+.ease {
+        -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s ease-out;
+    -ms-transition: all 0.4s ease-out;
+    -o-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+}
+#layout, .sidebar, .menu__side--link {
+.ease;
+}
+
+/* --------------------------
+ * Layout Styles
+ * --------------------------
+*/
+
+#layout {
+    padding-left: @sidebar-width; /* left col width ".sidebar" */
+    left: 0;
+
+}
+
+.sidebar {
+    margin-left: @sidebar-width * -1; /* ".sidebar" width */
+    width: @sidebar-width;
+    position: fixed;
+    top: 5%;
+    top:0;
+    left: @sidebar-width;
+    bottom: 0;
+    //background: @sidebar-bg;
+    z-index: 1000; /* so the menu or its navicon stays above all content */
+    overflow-y: auto;
+    -webkit-overflow-scroll: touch;
+}
+    
+    .sidebar .menu__side--open {
+        background: transparent;
+        border: 0;
+    }
+
+
+    .menu__side--link {
+        display: none; /* show this only on small screens */
+        bottom: 0%;
+        left: @sidebar-width; /* ".sidebar width" */
+        background: @sidebar-bg;
+        //background: rgba(@sidebar-bg,0.7);
+        font-size: 10px; /* change this value to increase/decrease button size */
+        z-index: 10;
+        width: 100%;//3em;
+        height: auto;
+        padding: 2em 3em 1em 1em;
+        border-bottom-right-radius: 4px;
+    }
+
+        .menu__side--link:hover,
+        .menu__side--link:focus {
+            background: darken(@sidebar-bg, 10%);
+        }
+
+        .menu__side--link span {
+            position: relative;
+            display: block;
+        }
+
+        .menu__side--link span,
+        .menu__side--link span:before,
+        .menu__side--link span:after {
+            //background-color: #fff;
+            width: 100%;
+            height: .2em;
+            -webkit-transition: all 0.8s;
+               -moz-transition: all 0.8s;
+                -ms-transition: all 0.8s;
+                 -o-transition: all 0.8s;
+                    transition: all 0.8s;
+        }
+
+            .menu__side--link span:before,
+            .menu__side--link span:after {
+                position: absolute;
+                margin-top: -.6em;
+                content: " ";
+            }
+
+            .menu__side--link span:after {
+                margin-top: .6em;
+            }
+
+        .menu__side--link.active span {
+            background: transparent;
+        }
+
+            .menu__side--link.active span:before {
+                -webkit-transform: rotate(45deg) translate(.5em, .4em);
+                   -moz-transform: rotate(45deg) translate(.5em, .4em);
+                    -ms-transform: rotate(45deg) translate(.5em, .4em);
+                     -o-transform: rotate(45deg) translate(.5em, .4em);
+                        transform: rotate(45deg) translate(.5em, .4em);
+            }
+
+            .menu__side--link.active span:after {
+                -webkit-transform: rotate(-45deg) translate(.45em, -.35em);
+                   -moz-transform: rotate(-45deg) translate(.45em, -.35em);
+                    -ms-transform: rotate(-45deg) translate(.45em, -.35em);
+                     -o-transform: rotate(-45deg) translate(.45em, -.35em);
+                        transform: rotate(-45deg) translate(.45em, -.35em);
+            }
+
+    .sidebar .menu__side-heading {
+        font-size: 110%;
+        color: #fff;
+    }
+    .sidebar .menu__side-heading:hover,
+    .sidebar .menu__side-heading:focus {
+        color: #999;
+    }
+
+    .sidebar .menu__side-selected {
+        background: #1f8dd6;
+    }
+
+        .sidebar .menu__side-selected a {
+            color: #fff;
+        }
+
+        .sidebar li.menu__side-selected a:hover,
+        .sidebar li.menu__side-selected a:focus {
+            background: none;
+        }
+
+
+
+
+/* --------------------------
+ * Responsive Styles
+ * --------------------------
+*/
+
+@media (max-width: 870px) {
+
+    /* Navigation Push Styles */
+    #layout {
+        position: relative;
+        padding-left: 0;
+    }
+        #layout.active {
+            position: relative;
+            left: @sidebar-width-small;
+        }
+            #layout.active .sidebar {
+                left: @sidebar-width-small;
+                width: @sidebar-width-small;
+            }
+
+    .sidebar {
+        left: 0;
+        background: @sidebar-bg;
+    }
+
+
+    .menu__side--link {
+        position: fixed;
+        left: 0;
+        display: block;
+    }
+
+    #layout.active .menu__side--link {
+        left: @sidebar-width-small;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .header,
+    .content {
+        font-size: 87.5%;
+    }
+
+    .header,
+    .content,
+    .legal {
+        padding-left: 1.1429em;
+        padding-right: 1.1429em;
+    }
+}
+//
+
+/*csslint adjoining-classes:false, outline-none:false*/
+/*TODO: Remove this lint rule override after a refactor of this code.*/

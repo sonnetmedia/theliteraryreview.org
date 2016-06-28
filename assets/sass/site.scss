@@ -1,0 +1,31 @@
+@charset "UTF-8";
+/*------------------------------------*\
+    prototype.CSS
+\*------------------------------------*/
+/**
+ * 
+ sass --watch your-projectyo.scss:your-projectyo.min.css --style compressed
+ * 
+ * Here we set up some variables, include the inuit.css framework, then add our
+ * project-specific components afterwards.
+ */
+
+
+/**
+ * INUIT Setup
+ */
+@import "defaults";
+@import "inuit/inuit";
+
+
+/**
+ * Sonnet Setup
+ */ 
+ @import "sonnet/sonnet"; //sonnet homegrown objects 
+
+/**
+ * Theme Setup
+ */ 
+
+
+ @import "theme/theme"; //project specific styles
