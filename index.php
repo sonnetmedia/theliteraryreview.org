@@ -7,8 +7,13 @@
   <?php get_search_form(); ?>
 <?php endif; ?>
 
+<div class="page-header">
+  <h1>
+    <?php echo roots_title(); ?>
+  </h1>
+</div>
+
 <?php while (have_posts()) : the_post(); ?>
-  <?php get_template_part('templates/page', 'header'); ?>
   <?php get_template_part('templates/content', get_post_format()); ?>
 <?php endwhile; ?>
 
