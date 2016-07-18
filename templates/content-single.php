@@ -1,24 +1,27 @@
 <?php while (have_posts()) : the_post(); ?>
 <div class="page-header">
   <h1>
-  <?php 
+  <?php
     if ( 'sm_issues' == get_post_type() ) {
         echo 'Back Issue';
       }
     else {
-        the_category(' '); 
+        the_category(' ');
     }
   ?>
   </h1>
 </div>
   <article <?php post_class(); ?>>
     <header>
-<?php 
+<?php
     if ( 'sm_issues' == get_post_type() ) {
         echo '<h4 style="max-width:60%;"><em>'; // max width fixes subtitle from spilling over to purchase box
-        the_field('issue_subtitle'); echo '</em></h4>'; 
+        the_field('issue_subtitle'); echo '</em></h4>';
         ?><h2 class="entry-title"><?php the_title(); ?></h2><?php
         echo '<br />Vol.'; the_field('issue_volume'); echo ' Issue '; the_field('issue_no'); echo '';
+        if( get_field('cover_artist') ) {
+          echo '<br />Cover Artist: '; the_field('cover_artist'); echo '';
+        }
       }
 
       else {
