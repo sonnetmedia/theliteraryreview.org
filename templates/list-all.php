@@ -17,7 +17,7 @@
 
 <?php
 // the query
-$wp_query = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'posts_per_page'=>20)); ?>
+$wp_query = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'paged' => $paged, 'posts_per_page'=>20)); ?>
 
 <?php if ( $wp_query->have_posts() ) : ?>
 
