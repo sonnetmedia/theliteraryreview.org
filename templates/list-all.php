@@ -1,5 +1,5 @@
 <?php
- //Template Name: All Posts
+ //Template Name: All Single Posts
 ?>
 
 <?php if (!have_posts()) : ?>
@@ -17,13 +17,13 @@
 
 <?php
 // the query
-$wpb_all_query = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'posts_per_page'=>-1)); ?>
+$wp_query = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'posts_per_page'=>20)); ?>
 
-<?php if ( $wpb_all_query->have_posts() ) : ?>
+<?php if ( $wp_query->have_posts() ) : ?>
 
-  <?php while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); ?>
+  <?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
 
-    <article <?php post_class(); ?>>
+    <article>
       <header>
         <h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
         <?php get_template_part('templates/entry-meta'); ?>
