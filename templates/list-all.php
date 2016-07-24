@@ -15,30 +15,80 @@
   </h1>
 </div>
 
-<?php
-// the query
-$wp_query = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'paged' => $paged, 'posts_per_page'=>20)); ?>
+<div class="row">
+  <div class="col-lg-9">
 
-<?php if ( $wp_query->have_posts() ) : ?>
+  <?php
+  // the query
+  $wp_query = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'paged' => $paged, 'posts_per_page'=>20)); ?>
 
-  <?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
+  <?php if ( $wp_query->have_posts() ) : ?>
 
-    <article <?php post_class(); ?>>
-      <header>
-        <h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-        <?php get_template_part('templates/entry-meta'); ?>
-      </header>
-      <div class="entry-summary">
-         <?php the_excerpt(); ?>
-      </div>
-    </article>
-  <?php endwhile; ?>
+    <?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
 
-  <?php wp_reset_postdata(); ?>
+      <article <?php post_class(); ?>>
+        <header>
+          <h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+          <?php get_template_part('templates/entry-meta'); ?>
+        </header>
+        <div class="entry-summary">
+           <?php the_excerpt(); ?>
+        </div>
+      </article>
+    <?php endwhile; ?>
 
-<?php else : ?>
-  <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
-<?php endif; ?>
+    <?php wp_reset_postdata(); ?>
+
+  <?php else : ?>
+    <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+  <?php endif; ?>
+
+  </div>
+  <div class="col-lg-3">
+      <h3>Featured Authors</h3>
+
+
+      <?php
+
+      /**
+       *  List Users Alphabetically
+       *
+       *  Create a list of all authors of a WordPress blog.
+       *  Names are grouped by first name with a single letter
+       *  as a header character.
+       *
+       *      Call the function with <?php ngtj_list_users_alphabetically(); ?>
+       *      where you want the list to appear.
+       *
+       *  @author   Nate Jacobs
+       *  @link   https://gist.github.com/1321741
+       *  http://wordpress.org/support/topic/customize-wp_list_authors-for-user-directory?replies=4
+       */
+      function ngtj_list_users_alphabetically()
+      {
+        $users = get_users( 'orderby=nicename&role=author' );
+
+        $first_letter = '';
+        foreach( $users as $user )
+        {
+          $space = strpos( $user->user_login, ' ' );
+          $letter = substr( $user->user_login, 0, 1 );
+          $letter = strtoupper( $letter );
+
+          if ( $letter != $first_letter )
+          {
+            $first_letter = $letter;
+          echo "<h5 id='ft_contrib_alphaletter_$first_letter'>$first_letter</h5>";
+          }
+          echo '<a href="' . get_author_posts_url( $user->ID, $user->user_nicename ) . '" title="' . $user->display_name . '">' . $user->display_name . '</a>';
+          echo "<br>";
+        }
+      }
+      ?>
+
+      <?php ngtj_list_users_alphabetically(); ?>
+
+  </div>
 
 <?php if ($wp_query->max_num_pages > 1) : ?>
   <nav class="post-nav">
