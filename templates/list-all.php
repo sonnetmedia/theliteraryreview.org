@@ -23,7 +23,7 @@ $wp_query = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'p
 
   <?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
 
-    <article>
+    <article <?php post_class(); ?>>
       <header>
         <h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
         <?php get_template_part('templates/entry-meta'); ?>
