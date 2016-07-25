@@ -4,14 +4,9 @@
 </a>
 <div class="sidebar" id="menu__side">
     <div class="menu__side menu__side--open">
-    <?php get_template_part('/templates/nav-header');    ?>    
-        <?php  if ( is_home() ) {    
-         get_template_part('/templates/nav-list');   
-    
-            } else {
+    <?php get_template_part('/templates/nav-header');    ?>
+        <?php
             get_template_part( '/templates/nav-side-interior' );
-
-            }
         ?>
          <a href="http://www.fdu.edu/" title="Farleigh Dickenson University" class="logo-school">
             <img src="/media/2013/07/fdulogo_260x78.png" style="width:140px;">
@@ -23,4 +18,3 @@
 
 
 
-    
