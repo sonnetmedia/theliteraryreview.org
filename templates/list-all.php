@@ -20,7 +20,7 @@
 
   <?php
   // the query
-  $wp_query = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'paged' => $paged, 'posts_per_page'=>20)); ?>
+  $wp_query = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'paged' => $paged, 'posts_per_page'=>30)); ?>
 
   <?php if ( $wp_query->have_posts() ) : ?>
 
