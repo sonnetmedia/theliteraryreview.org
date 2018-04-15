@@ -28,9 +28,11 @@ a .fa-envelope {color: #999; !important}
 
                     <div class="sharing-buttons col-lg-1 pull-right" >
 
-<a href="http://visitor.r20.constantcontact.com/manage/optin?v=001gZhl0uV6LWFk3pfUnHJZzgxak0DfMlzz8mRLhzC8Pk261wgknNqLfjkj7jFoSs3Pe0ZF6k7FIHU8P71IZUme4PjFIBTqe5h_NuXOMA1ajkk%3D">
-                                <i class="fa fa-envelope fa-lg"></i>
-                            </a>
+                        <!--
+                        <a href="http://visitor.r20.constantcontact.com/manage/optin?v=001gZhl0uV6LWFk3pfUnHJZzgxak0DfMlzz8mRLhzC8Pk261wgknNqLfjkj7jFoSs3Pe0ZF6k7FIHU8P71IZUme4PjFIBTqe5h_NuXOMA1ajkk%3D">
+                            <i class="fa fa-envelope fa-lg"></i>
+                        </a>
+                        -->
 
 
 
