@@ -202,6 +202,43 @@ font-size: @font-size-base + 1;
 }
 .nav {text-transform: uppercase;}
 
+.nav-search {
+    margin-top: 7px;
+    width: 75%;
+    @media (min-width: @screen-md-min) {
+      float: right;
+      width: auto;
+      width: 25%;
+    } 
+}
+
+.nav-search input[type="search"] {
+  background: #0c0c0c;
+  border: none;
+  color: #fff;
+  border-bottom: 1px solid #999;
+  border-radius: 0;
+  width: 100%;
+  -webkit-appearance: none;
+}
+
+.nav-search input[type="search"]:focus {
+
+}
+
+.nav-search .input-group {
+  width: 100%;
+}
+
+.nav-search .btn {
+  margin-bottom: 0;
+  background-color: transparent;
+  border: none;
+  color: #999;
+  display: none;
+}
+
+
 
 .brand-subhead {
     font-family: @font-family-sans-serif;
