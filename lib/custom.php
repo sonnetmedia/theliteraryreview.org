@@ -192,7 +192,7 @@ function purchase_info($content) {
           $isbn_13_converted = ISBN13toISBN10($isbn); //for Amazon - this conversion can be found in functions.php
           
           // AMAZON
-          $content.= '<span><a href="http://www.amazon.com/dp/' .$isbn_13_converted . ' " class="btn btn-default btn-sm">Kindle/print via Amazon</a></span>';
+          //$content.= '<span><a href="http://www.amazon.com/dp/' .$isbn_13_converted . ' " class="btn btn-default btn-sm">Kindle/print via Amazon</a></span>';
         } //if isbn
 
           //EPUB PAYPAL
