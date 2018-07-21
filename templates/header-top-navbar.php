@@ -1,5 +1,5 @@
 <header class="banner navbar navbar-inverse navbar-fixed-top" role="banner">
-  
+
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
@@ -22,15 +22,15 @@ a .fa-envelope {color: #999; !important}
 
 
 
-                        <?php  $sm_facebook =  get_field('facebook_handle', 'option'); 
-                                $sm_twitter =  get_field('twitter_handle', 'option'); 
+                        <?php  $sm_facebook =  get_field('facebook_handle', 'option');
+                                $sm_twitter =  get_field('twitter_handle', 'option');
                         ?>
 
                     <div class="col-xs-8 col-sm-2 col-md-3 col-lg-3 nav-search">
                         <form role="search" method="get" class="search-form form-inline" action="<?php echo home_url('/'); ?>">
                           <div class="input-group">
-                            <input type="search" value="<?php if (is_search()) { echo get_search_query(); } ?>" name="s" class="search-field form-control" placeholder="<?php _e('Search', 'roots'); ?> <?php bloginfo('name'); ?>">
-                            <label class="hide"><?php _e('Search for:', 'roots'); ?></label>
+                            <input id="search" type="search" value="<?php if (is_search()) { echo get_search_query(); } ?>" name="s" class="search-field form-control" placeholder="<?php _e('Search', 'roots'); ?> <?php bloginfo('name'); ?>">
+                            <label for="search" class="visuallyhidden"><?php _e('Search for:', 'roots'); ?></label>
                             <span class="input-group-btn">
                               <button type="submit" class="search-submit btn btn-default"><?php _e('Search', 'roots'); ?></button>
                             </span>
@@ -47,22 +47,22 @@ a .fa-envelope {color: #999; !important}
                         -->
 
                         <?php if ($sm_twitter) {   ?>
-                        
+
                             <a href="https://twitter.com/<?php echo $sm_twitter ?>" target="_blank">
                                 <i class="fa fa-twitter fa-lg"></i>
                             </a>
-                        
+
                         <?php   } if ($sm_facebook) {    ?>
-                        
+
                             <a href="http://www.facebook.com/<?php echo $sm_facebook ?>" target="_blank" >
                                 <i class="fa fa-facebook fa-lg"></i>
                             </a>
-                        
+
 
                         <?php  }    ?>
-    
+
                     </div>
-                
+
 
 
 
