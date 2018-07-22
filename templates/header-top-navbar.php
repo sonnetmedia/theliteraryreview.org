@@ -48,13 +48,13 @@ a .fa-envelope {color: #999; !important}
 
                         <?php if ($sm_twitter) {   ?>
 
-                            <a href="https://twitter.com/<?php echo $sm_twitter ?>" target="_blank">
+                            <a href="https://twitter.com/<?php echo $sm_twitter ?>" target="_blank" aria-label="Visit our Twitter page">
                                 <i class="fa fa-twitter fa-lg"></i>
                             </a>
 
                         <?php   } if ($sm_facebook) {    ?>
 
-                            <a href="http://www.facebook.com/<?php echo $sm_facebook ?>" target="_blank" >
+                            <a href="http://www.facebook.com/<?php echo $sm_facebook ?>" target="_blank" aria-label="Visit our Facebook page">
                                 <i class="fa fa-facebook fa-lg"></i>
                             </a>
 
