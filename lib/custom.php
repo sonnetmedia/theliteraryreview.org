@@ -187,10 +187,11 @@ function purchase_info($content) {
       $paypal_acct_email_address = get_field('paypal_acct_email_address', 'option');
 
       $isbn = get_field('isbn13');
+      $gumroad_embed = get_field('gumroad_embed');
       $content.='<div class="box-upper-right"><h6><a href="javascript:void(0)" id="show-box-purchase">purchase options</a></h6><div style="display:none" id="box-purchase">';
       if($isbn) {
           $isbn_13_converted = ISBN13toISBN10($isbn); //for Amazon - this conversion can be found in functions.php
-          
+
           // AMAZON
           //$content.= '<span><a href="http://www.amazon.com/dp/' .$isbn_13_converted . ' " class="btn btn-default btn-sm">Kindle/print via Amazon</a></span>';
         } //if isbn
@@ -205,7 +206,7 @@ function purchase_info($content) {
             //INTERNATIONAL
           $content.='<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="paypal"><input type="hidden" value="http://www.theliteraryreview.org/?ACT=20" name="notify_url" /> <input type="hidden" value="http://www.theliteraryreview.org/thank-you/" name="return" /><input type="hidden" value="http://www.theliteraryreview.org/canceled-order/ ‎" name="cancel_return" /><input type="hidden" name="business" value="'.$paypal_acct_email_address.'" /><input type="hidden" name="item_name" value="Issue: '. $issue_title .' (print edition)" /><input type="hidden" name="item_number" value="(' .$issue_volume. '-' .$issue_no.')" /><input type="hidden" name="amount" value="'.$issue_price_print.'" /><input type="hidden" name="currency_code" value="USD"><input type="hidden" name="add" value="1" /><input type="hidden" name="no_note" value="1" /><input type="hidden" name="no_shipping" value="2" /><input type="hidden" name="shipping" value="'.$issue_shipping_charge_intl.'" /><input type="hidden" name="shipping2" value="" /><input type="hidden" name="cmd" value="_cart"><input type="submit" style="border-color:#FFF;font-size:70%;line-height:1;margin-bottom:0;padding-left:0;" class="btn btn-default btn-sm" name="submit" border="0" alt="Buy now safely through PayPal" value="Non-U.S. readers click here to purchase via Paypal"></form>';
 
-
+          $content.= '<hr>' . $gumroad_embed;
 
           $content.='</div></div>';
 
